@@ -7,7 +7,7 @@ class Todo_model extends CI_Model{
     public $tableName = "todos";
 
     public function get_all(){
-
+       return $this->db->get($this->tableName)->result();
     }
     public function insert(){
 

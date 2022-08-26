@@ -9,7 +9,20 @@ class Todo extends CI_Controller{
     //siteAdi/ControllerAdi/methotAdi/parametre/parametre
     public function index(){
 
-        $this->load->view("todo_list");
+        $this->load->model("todo_model");
+
+
+        $items= $this->todo_model->get_all();
+//
+//        print_r($items);
+//        die();
+
+        //db den aldığımız verileri, view'e göndermek için array tanımlıyoruz
+        $viewData = array(
+            "todos"=>$items // todos indisi view tarafında değişkene dönüşmektedir.
+        );
+
+        $this->load->view("todo_list", $viewData);
     }
     public function insert(){
 
