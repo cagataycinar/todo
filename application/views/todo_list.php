@@ -37,10 +37,13 @@
                                             <?php echo $todo->title; ?>
                                         </td>
                                         <td class="text-center" style="width: 100px">
-                                            <?php echo $todo->isCompleted; ?>
+                                            <input
+                                                    type="checkbox"
+                                                    data-url="<?php echo base_url("todo/iscompletedsetter/$todo->id");?>"
+                                                    class="js-switch" <?php echo ($todo->isCompleted) ? "checked" :""; ?> />
                                         </td>
                                         <td class="text-center" style="width: 100px">
-                                            <a href="#" class="btn btn-danger">Sil</a>
+                                            <a href="<?php echo base_url("todo/delete/$todo->id"); ?> " class="btn btn-danger">Sil</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
